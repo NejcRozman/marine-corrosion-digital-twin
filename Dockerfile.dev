@@ -1,0 +1,36 @@
+# Development Dockerfile with additional tools
+FROM python:3.11
+
+WORKDIR /app
+
+# Install system dependencies including development tools
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    postgresql-client \
+    libpq-dev \
+    curl \
+    vim \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt requirements-dev.txt ./
+
+# Install Python dependencies
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    pip install -r requirements-dev.txt
+
+# Copy project
+COPY . .
+
+# Install package in development mode
+RUN pip install -e .
+
+# Jupyter notebook port
+EXPOSE 8888
+# API port
+EXPOSE 8000
+
+CMD ["bash"]

@@ -1,0 +1,22 @@
+# Environment variables (contains passwords!)
+.env
+
+# VS Code settings
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/*.log
+
+# Data files (too large for git)
+data/raw/*
+data/processed/*
+
+# Trained models (too large for git)
+models/saved_models/*
+
+# Jupyter checkpoints
+.ipynb_checkpoints/

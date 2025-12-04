@@ -1,0 +1,21 @@
+# Database Configuration
+# For production, use environment variables instead of hardcoded credentials
+
+database:
+  host: ${DB_HOST:localhost}
+  port: ${DB_PORT:5432}
+  name: ${DB_NAME:marine_corrosion_db}
+  user: ${DB_USER:postgres}
+  password: ${DB_PASSWORD:postgres}
+  
+  # Connection pool settings
+  pool:
+    min_size: 5
+    max_size: 20
+    timeout: 30
+    
+  # TimescaleDB settings (for future migration)
+  timescaledb:
+    enabled: false
+    chunk_time_interval: "1 day"
+    retention_policy: "90 days"
