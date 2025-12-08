@@ -11,7 +11,7 @@ DB_PASSWORD=your_password_here
 
 2. Start the database:
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 3. Install Python dependencies (if working locally):
