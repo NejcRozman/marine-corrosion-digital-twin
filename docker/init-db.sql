@@ -6,8 +6,11 @@ CREATE TABLE IF NOT EXISTS sensor_data (
     id SERIAL PRIMARY KEY,
     timestamp TIMESTAMP WITH TIME ZONE NOT NULL,
     unix_timestamp BIGINT NOT NULL,
-    temperature DECIMAL(6, 2),
+    temperature_surface DECIMAL(6, 2),
+    temperature_atmosphere DECIMAL(6, 2),
     relative_humidity DECIMAL(5, 2),
+    cond_low_freq DECIMAL(10, 4),
+    cond_high_freq DECIMAL(10, 4),
     corrosion_rate DECIMAL(8, 4),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

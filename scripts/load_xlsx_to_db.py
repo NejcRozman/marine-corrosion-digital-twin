@@ -53,13 +53,17 @@ df['timestamp'] = pd.to_datetime(df['Unix Timestamp (UTC).2'], unit='s', utc=Tru
 # Prepare DataFrame for DB insert (rename columns if needed)
 df_db = df.rename(columns={
     'Unix Timestamp (UTC).2': 'unix_timestamp',
-    'Ts (°C).2': 'temperature',
+    'Ts (°C).2': 'temperature_surface',
+    'Ta (°C).2': 'temperature_atmosphere',
     'RH (%).2': 'relative_humidity',
+    'Cond Lo Freq (µS) .2': 'cond_low_freq',
+    'Cond Hi Freq (µS) .2': 'cond_high_freq',
     'Free Corr (µA) - Gangseo-gu, Korea': 'corrosion_rate'
 })
 
 # Only keep the columns needed for the table
-df_db = df_db[['timestamp', 'unix_timestamp', 'temperature', 'relative_humidity', 'corrosion_rate']]
+df_db = df_db[['timestamp', 'unix_timestamp', 'temperature_surface', 'temperature_atmosphere', 
+               'relative_humidity', 'cond_low_freq', 'cond_high_freq', 'corrosion_rate']]
 
 # Insert into database
 engine = create_engine(
