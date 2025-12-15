@@ -3,6 +3,8 @@
 
 # Virtual environment
 venv/
+.venv/
+ENV/
 
 # VS Code settings
 .vscode/
@@ -10,6 +12,10 @@ venv/
 # Python cache
 __pycache__/
 *.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
 
 # Logs
 logs/*.log
@@ -19,7 +25,7 @@ data/raw/*
 data/processed/*
 
 # Trained models (too large for git)
-models/saved_models/*
+models/*
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
